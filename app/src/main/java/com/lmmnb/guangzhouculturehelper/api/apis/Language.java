@@ -60,4 +60,8 @@ public class Language {
         String json = HttpUtil.post(Url.translate, body);
         return new Gson().fromJson(json, TranslateModel.class);
     }
+
+    public static void speech(String text) {
+        
+    }
 }
