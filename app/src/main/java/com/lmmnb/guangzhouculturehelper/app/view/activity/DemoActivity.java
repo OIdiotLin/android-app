@@ -33,4 +33,7 @@ public class DemoActivity extends AppCompatActivity {
         translateVM.getDemo();
     }
 
+    public void onTTSClick(View view) {
+        translateVM.tts();
+    }
 }

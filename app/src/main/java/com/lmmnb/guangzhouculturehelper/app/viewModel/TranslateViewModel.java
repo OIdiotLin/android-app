@@ -5,6 +5,7 @@ import android.databinding.BaseObservable;
 
 import com.lmmnb.guangzhouculturehelper.api.apis.Language;
 import com.lmmnb.guangzhouculturehelper.api.model.TranslateModel;
+import com.lmmnb.guangzhouculturehelper.app.utils.MediaUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,5 +51,20 @@ public class TranslateViewModel extends BaseObservable {
     public void setTranslate(TranslateModel translate) {
         this.translate = translate;
     }
+
+    public void translateToCantoneseByText(String srcText) {
+        translate = Language.translateToCantoneseByText(srcText);
+    }
+
+    public void tts() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                MediaUtil.playMp3(Language.speech(translate.getTgtText()));
+            }
+        }).start();
+    }
+
+//    public void translateToMadarinByVoice()
 
 }

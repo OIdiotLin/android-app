@@ -1,8 +1,5 @@
 package com.lmmnb.guangzhouculturehelper.api.services;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import java.io.IOException;
 
 import okhttp3.OkHttpClient;
@@ -69,5 +66,24 @@ public class HttpUtil {
         }
 
         return jsonStr;
+    }
+
+    public static byte[] postByteArray(final String url, final RequestBody body) {
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .build();
+        Response response;
+        byte[] arr = null;
+        try {
+            response = client.newCall(request).execute();
+            arr = response.body().bytes();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
+        return arr;
     }
 }

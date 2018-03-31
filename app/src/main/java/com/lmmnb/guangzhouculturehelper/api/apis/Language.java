@@ -8,6 +8,7 @@ import com.lmmnb.guangzhouculturehelper.api.services.Url;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
@@ -61,7 +62,18 @@ public class Language {
         return new Gson().fromJson(json, TranslateModel.class);
     }
 
-    public static void speech(String text) {
-        
+    public static byte[] speech(String text) {
+        JSONObject params;
+        try {
+            params = new JSONObject().put("text", text);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), params.toString());
+
+        return HttpUtil.postByteArray(Url.speech, body);
+
     }
 }

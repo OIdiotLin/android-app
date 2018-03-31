@@ -42,6 +42,12 @@
             android:layout_height="70dp"
             android:text="Refresh"
             android:onClick="onRefreshClick" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="TTS"
+            android:onClick="onTTSClick" />
     </LinearLayout>
 
 </layout>
