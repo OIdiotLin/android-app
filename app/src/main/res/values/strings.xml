@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">GuangzhouCultureHelper</string>
+    <string name="app_name">广州文化助手</string>
+    <string name="translate">粤语</string>
+    <string name="food">美食</string>
 </resources>

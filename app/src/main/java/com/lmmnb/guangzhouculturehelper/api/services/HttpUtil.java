@@ -68,6 +68,14 @@ public class HttpUtil {
         return jsonStr;
     }
 
+    /**
+     * POST Request.
+     * Request body required.
+     *
+     * @param url  URL of the request
+     * @param body post body of the request
+     * @return response body as a bytesArray
+     */
     public static byte[] postByteArray(final String url, final RequestBody body) {
         Request request = new Request.Builder()
                 .url(url)
