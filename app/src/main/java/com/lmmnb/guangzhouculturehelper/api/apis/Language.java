@@ -62,6 +62,20 @@ public class Language {
         return new Gson().fromJson(json, TranslateModel.class);
     }
 
+    /**
+     * API: Get TTS as Cantonese.
+     * use cantonese text as the parameter
+     * <p>
+     * Request Example:
+     * <pre>
+     * {
+     *     "text": "请求一段语音"
+     * }
+     * </pre>
+     *
+     * @param text source Cantonese text
+     * @return mp3 binary file as byte array
+     */
     public static byte[] speech(String text) {
         JSONObject params;
         try {

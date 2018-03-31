@@ -8,6 +8,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MediaUtil {
+    /**
+     * Play mp3 as a byte array.
+     *
+     * @param mp3arr source file byte array
+     */
     public static void playMp3(byte[] mp3arr) {
         final MediaPlayer player = new MediaPlayer();
         player.reset();

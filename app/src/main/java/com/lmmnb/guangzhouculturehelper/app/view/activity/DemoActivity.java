@@ -1,5 +1,6 @@
 package com.lmmnb.guangzhouculturehelper.app.view.activity;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ public class DemoActivity extends AppCompatActivity {
         // 这里返回了 dataBinding 类，用于做数据绑定。
         ActivityDemoBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_demo);
 
-        // View - DemoActivity 拥有一个
+        // View - DemoActivity 拥有一个 TranslateViewModel
         translateVM = new TranslateViewModel(this);
 
         binding.setVm(translateVM);
@@ -35,5 +36,10 @@ public class DemoActivity extends AppCompatActivity {
 
     public void onTTSClick(View view) {
         translateVM.tts();
+    }
+
+    public void onMainActivityClick(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
